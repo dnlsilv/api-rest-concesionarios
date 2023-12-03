@@ -1,3 +1,27 @@
+
+//CONEXION MONGODB------------------------------------------------------------------
+
+// Importar mongoose
+const mongoose = require("mongoose");
+
+// Conectar con MongoDB
+mongoose.connect("mongodb://localhost:27017/concesionariosDB", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+// Definir un esquema de mongoose para los concesionarios
+const concesionarioSchema = new mongoose.Schema({
+    nombre: String,
+    direccion: String,
+    coches: [{ modelo: String, cv: Number, precio: Number }],
+});
+
+// Crear un modelo a partir del esquema
+const Concesionario = mongoose.model("Concesionario", concesionarioSchema);
+
+//CONEXION MONGODB------------------------------------------------------------------
+
 /**
  * Tres formas de almacenar valores en memoria en javascript:
  *      let: se puede modificar
@@ -7,6 +31,7 @@
 
 // Importamos las bibliotecas necesarias.
 // Concretamente el framework express.
+
 const express = require("express");
 
 // Inicializamos la aplicación
@@ -22,6 +47,7 @@ const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log(`Servidor desplegado en puerto: ${port}`);
 });
+
 
 // Definimos una estructura de datos
 // (temporal hasta incorporar una base de datos)

@@ -1,3 +1,7 @@
+//SWAGGER
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
+
 
 //CONEXION MONGODB------------------------------------------------------------------
 
@@ -36,6 +40,11 @@ const express = require("express");
 
 // Inicializamos la aplicación
 const app = express();
+
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
 
 // Indicamos que la aplicación puede recibir JSON (API Rest)
 app.use(express.json());

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/dnlsilv/api-rest-concesionarios#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "mongoose": "^8.0.2"
+    "mongoose": "^8.0.2",
+    "swagger-ui-express": "^5.0.0"
   }
 }
